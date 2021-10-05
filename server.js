@@ -19,7 +19,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 });
 
 // routes
-// app.use(require("./routes/api.js"));
+app.use(require("./routes/api.js"));
+
 app.get("/exercise", (req, res) => {
     res.sendFile(__dirname + "/public/exercise.html");
   });
