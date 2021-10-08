@@ -24,7 +24,7 @@ router.get("/api/workouts", (req, res) => {
     //   });
   });
 
-router.put("/api/workouts/:id", async (req, res) => {
+router.put("/api/workouts/:id", (req, res) => {
     const derp = req.body
     console.log(derp)
     console.log(req.params.id)
@@ -55,4 +55,26 @@ router.put("/api/workouts/:id", async (req, res) => {
       );
   });
 
+router.post("/api/workouts", (req,res) => {
+    Workout.create(req.body)
+    .then(workoutData => {
+      res.json(workoutData);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+} )
+
+router.get("/api/workouts/range", (req, res) => {
+    Workout.find({})
+      .sort({ day: -1 })
+      .then(workoutData => {
+          console.log(workoutData)
+          
+        res.json(workoutData);
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      });
+})
 module.exports = router;
