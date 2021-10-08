@@ -4,21 +4,24 @@ const Workout = require("../models/workout")
 // const Exercise = require("../models/exercise")
 
 router.get("/api/workouts", (req, res) => {
-    Workout.find({})
-      .sort({ day: -1 })
-      .then(workoutData => {
-        //   workoutData.aggregate([
-        //       {
-        //         $addFields: {
-        //             totalDuration: { $sum: "$exercises.duration" } ,   
-        //           }
-        //         },
-        //   ])
-        res.json(workoutData);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
+    Workout.aggregate([
+        {
+          $addFields: {
+              totalDuration: { $sum: "$exercises.duration" } , 
+              // fuck: {this: "shit"},  
+            }
+          },
+    ]).then(data => {res.json(data)})
+    // Workout.find({})
+    //   .sort({ day: -1 })
+    //   .then(workoutData => {
+          
+          
+    //     res.json(workoutData);
+    //   })
+    //   .catch(err => {
+    //     res.status(400).json(err);
+    //   });
   });
 
 router.put("/api/workouts/:id", async (req, res) => {
