@@ -22,9 +22,9 @@ npm i for local server
 
 Click continue workout to add new exercises for your current workout. Click create workout to start a new workout.
 
-The application works on the local server and was pushed to heroku successfully but isn't connecting to Atlas. The enviroment variables were set up in heroku however there is another issue with connecting
+https://user-images.githubusercontent.com/83552236/136673527-d2247fa2-8aad-4cfa-9b05-45b045582bb1.JPG
 
-https://user-images.githubusercontent.com/83552236/136667570-1dcee77c-bdf4-43dc-97c0-635d97eaf166.mp4
+https://user-images.githubusercontent.com/83552236/136673543-76f6ee50-8ec1-4e64-b99d-9f962aa0f34e.JPG
 
 Follow the link to the deployed application:
 
