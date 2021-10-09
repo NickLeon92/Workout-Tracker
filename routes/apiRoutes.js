@@ -66,15 +66,13 @@ router.post("/api/workouts", (req,res) => {
 } )
 
 router.get("/api/workouts/range", (req, res) => {
-    Workout.find({})
-      .sort({ day: -1 })
-      .then(workoutData => {
-          console.log(workoutData)
-          
-        res.json(workoutData);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
+    Workout.aggregate([
+        {
+          $addFields: {
+              totalDuration: { $sum: "$exercises.duration" } , 
+              // fuck: {this: "shit"},  
+            }
+          },
+    ]).then(data => {res.json(data)})
 })
 module.exports = router;
