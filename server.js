@@ -23,6 +23,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 // routes
 app.use(require("./routes/apiRoutes.js"));
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
 app.get("/exercise", (req, res) => {
     res.sendFile(__dirname + "/public/exercise.html");
   });
