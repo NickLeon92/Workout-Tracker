@@ -22,6 +22,10 @@ npm i for local server
 
 Click continue workout to add new exercises for your current workout. Click create workout to start a new workout.
 
+The application works on the local server and was pushed to heroku successfully but isn't connecting to Atlas. The enviroment variables were set up in heroku however there is another issue with connecting
+
+https://user-images.githubusercontent.com/83552236/136667570-1dcee77c-bdf4-43dc-97c0-635d97eaf166.mp4
+
 Follow the link to the deployed application:
 
 https://my-cool-workout-tracker.herokuapp.com/
